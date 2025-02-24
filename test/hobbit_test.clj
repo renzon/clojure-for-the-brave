@@ -24,3 +24,17 @@
             {:name "mouth" :size 1}]]]
       (is (= hobbit-full-body (better-symmetrize-body hobbit-left-body)))
       (is (= hobbit-full-body (symmetrize-body hobbit-left-body))))))
+
+(deftest test-hobbit-hit
+  "Testing hobbit hit mocking rand function"
+  (with-redefs [rand (fn [_] 0)]
+    (is (= {:name "head" :size 3} (hit asym-hobbit-body-parts))))
+  (with-redefs [rand (fn [_] 1)]
+    (is (= {:name "head" :size 3} (hit asym-hobbit-body-parts))))
+  (with-redefs [rand (fn [_] 2)]
+    (is (= {:name "head" :size 3} (hit asym-hobbit-body-parts))))
+  (with-redefs [rand (fn [_] 3)]
+    (is (= {:name "left-eye", :size 1} (hit asym-hobbit-body-parts))))
+  (with-redefs [rand (fn [_] 4)]
+    (is (= {:name "right-eye", :size 1} (hit asym-hobbit-body-parts))))
+  )
