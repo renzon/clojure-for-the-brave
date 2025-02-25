@@ -9,3 +9,11 @@
     (is (= {:name "Renzo" :lastname "Nuccitelli"}
            (hash-map :name "Renzo" :lastname "Nuccitelli")))
     (is (= #{:name :lastname} (hash-set :name :lastname :name :lastname)))))
+
+
+(defn add_hundred [x] (+ x 100))
+
+(deftest test_add_hundred
+  (testing "Ex 2 of chapter 3"
+    (is (= 100 (add_hundred 0)))
+    (is (= 110 (add_hundred 10)))))
