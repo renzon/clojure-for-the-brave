@@ -17,3 +17,14 @@
   (testing "Ex 2 of chapter 3"
     (is (= 100 (add_hundred 0)))
     (is (= 110 (add_hundred 10)))))
+
+
+(defn dec_maker [dec_param]
+  (defn dec_f [x]
+    (- x dec_param))
+  )
+
+(deftest test_dec_maker
+  (testing "Ex 3 of chapter 3"
+    (is (= -100 ((dec_maker 100) 0)))
+    (is (= 18 ((dec_maker 2) 20)))))
