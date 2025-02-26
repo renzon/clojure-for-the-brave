@@ -28,3 +28,12 @@
   (testing "Ex 3 of chapter 3"
     (is (= -100 ((dec_maker 100) 0)))
     (is (= 18 ((dec_maker 2) 20)))))
+
+
+(defn mapset [f coll]
+  (into #{} (map f coll)))
+
+(deftest test_mapset
+  (testing "Ex 4 of chapter 3"
+    (is (= #{2 3} (mapset inc [1 1 2 2])))
+    (is (= #{2 3 5} (mapset inc [1 1 2 2 4 4 4 4])))))
